@@ -1,0 +1,71 @@
+<html>
+<head>
+<script type="text/javascript">
+function validate(){
+    
+    var x = document.forms["form"]["name"].value;
+    if (x == null || x == "") {
+        alert("Name must be filled out");
+        document.form.name.focus();
+        return false;
+    }
+   
+   var y= document.forms["form"]["Aadhar_card"].value; 
+    
+  if(y.length!= 12||isNaN(y))  
+        {  
+      alert("enter a valid aadhar_card no."); 
+        document.form.Aadhar_card.focus();
+        return false;   
+ 
+       }
+}
+</script>
+</head>
+<body>
+<?php
+error_reporting(0);
+$con=mysql_connect('localhost','root','') or die('error'.mysql_error);
+mysql_select_db('citizens');
+$sel=mysql_query('select * from details_of_citizens');
+if (is_resource($sel))
+{
+while($row=mysql_fetch_array($sel))
+{
+if ($_POST){ 
+if($_POST['name']==$row['NAME'] && $_POST['Aadhar_card']==$row['AADHAR_NO'])
+{
+echo"Valid aadhar number<br>";
+if($_POST['type']=="client")
+{   
+header('Location:2-9_new.php');    
+}
+}
+else
+{
+echo"login failed,<br>check name or aadhar no<br>";
+}
+}
+}
+}
+else
+echo"failed<br>";
+
+?>
+
+<form name="form" action="login.php" method="post">
+<br><br>
+Name &nbsp
+<input type="text" name="name" ><br><br>
+Aadhar Card No.&nbsp
+<input type="text" name="Aadhar_card" ><br><br>
+Type &nbsp
+<select name="type">
+<option value="client">client</option>
+<option value="employee">employee</option>
+</select><br><br>
+<input type="submit" value="confirm" onclick="validate();">
+</form>
+</body>
+</html>
+

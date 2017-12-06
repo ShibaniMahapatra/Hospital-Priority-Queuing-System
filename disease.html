@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body
+{
+font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+text-align: left;
+
+margin: 50px 400px 150px 300px;
+}
+h2{
+color: black;
+text-align: center;
+}
+html { 
+  background: url(bg.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+form
+{
+border: 1px solid purple;
+
+
+  
+    background-color:#FFDAB9;
+
+
+color: purple;
+  opacity: 1;
+  width: 400px;
+  margin: 10px;
+  
+  
+  text-shadow: 0 1px 0 #133d3e;
+  
+  
+  
+  cursor: pointer;
+}
+input[type=text] {
+    padding:5px; 
+    border:2px solid #ccc; 
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+input[type=text]:focus {
+    border-color:#333;
+}
+
+input[type=submit] {
+    padding:5px 15px; 
+    background:#ccc; 
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+}
+
+</style>
+</head>
+<body>
+<div>
+<form action="action_page.php">
+  Patient Name:<br>
+  <input type="text" name="Patient name" value="Enter your name">
+  <br>
+<br>
+Patient ID:<br>
+  <input type="text" name="Patient Id" value="Enter your ID">
+  <br>
+<br>
+</form>
+
+<form action="action_page.php">
+
+Enter the name of the disease:
+<br>
+  <select name="diseases">
+    <option value="Cold,cough and fever">cold,cough and fever</option>
+    <option value="Severe bleeding">Severe bleeding</option>
+    <option value="Fracture">Fracture</option>
+    <option value="Unconsciousness">Unconsciousness</option>
+  </select>
+  <br><br>
+  <input type="submit">
+</form>
+</div>
+</body>
+</html>
+
+
